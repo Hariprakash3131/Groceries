@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # PickBazar - Online Grocery Store
 
 A modern e-commerce website for groceries and fresh produce, built with React, Vite, and Bootstrap 5.
@@ -176,3 +177,6 @@ For support or questions, please open an issue in the repository.
 ---
 
 **Happy Shopping! 🛒**
+=======
+# Groceries
+>>>>>>> 9065854cfb9064e44da324e64b51ada9b6b52603
