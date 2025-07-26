@@ -1,0 +1,210 @@
+.navbar {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.navbar-nav .nav-link {
+  margin-right: 1rem;
+  font-weight: 500;
+}
+
+.navbar-nav .dropdown-menu {
+  min-width: 180px;
+}
+
+.cart-summary {
+  min-width: 120px;
+  background: #28a745;
+  color: #fff;
+  border-radius: 10px;
+  padding: 0.7rem 1rem 1rem 1rem;
+  box-shadow: 0 2px 8px rgba(40, 167, 69, 0.10);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 1rem;
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
+  font-family: 'Inter', Arial, sans-serif;
+}
+.cart-summary .fw-bold {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.15rem;
+  letter-spacing: 0.01em;
+}
+.cart-summary .btn-view-cart {
+  background: #fff;
+  color: #28a745;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.98rem;
+  padding: 0.4rem 1rem;
+  margin-top: 0.5rem;
+  box-shadow: 0 1px 4px rgba(40, 167, 69, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.cart-summary .btn-view-cart:hover {
+  background: #28a745;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(40, 167, 69, 0.15);
+}
+.cart-summary .btn-view-cart i {
+  font-size: 1rem;
+  margin-right: 0.3rem;
+}
+
+/* Hide cart summary on smaller screens */
+@media (max-width: 991px) {
+  .cart-summary {
+    display: none !important;
+  }
+}
+
+/* Button group alignment for Join and Become a Seller */
+.navbar .navbar-btn-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: auto;
+}
+
+@media (max-width: 991px) {
+  .navbar .navbar-btn-group {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+    margin-left: 0;
+    margin-top: 1rem;
+  }
+}
+
+/* Responsive spacing for buttons */
+@media (max-width: 768px) {
+  .navbar .btn {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  .navbar .d-flex.gap-2 {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+/* Buttons Styling (Pure CSS) */
+.custom-button-group {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+}
+
+/* Optional: Adjust for smaller screens */
+@media (max-width: 991px) {
+  .custom-button-group {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin-left: 0;
+    margin-top: 1rem;
+  }
+}
+/* Button Styles */
+.custom-btn {
+  font-size: 1rem;
+  padding: 0.45rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 2px solid #28a745;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Outline Style */
+.custom-btn.outline {
+  background: transparent;
+  color: #28a745;
+}
+
+/* Filled Style */
+.custom-btn.filled {
+  background-color: #28a745;
+  color: white;
+}
+
+/* Hover Effects */
+.custom-btn.outline:hover {
+  background-color: #28a745;
+  color: white;
+}
+
+.custom-btn.filled:hover {
+  background-color: #218838; /* slightly darker green */
+  color: #fff;
+}
+@media (max-width: 576px) {
+  .list-group-item {
+    flex-direction: column;
+    align-items: flex-start !important;
+  }
+
+  .list-group-item > div:last-child {
+    align-self: flex-end;
+    width: 100%;
+    text-align: right;
+    margin-top: 10px;
+  }
+}
+
+.navbar .nav-link .fa-shopping-cart {
+  color: #28a745;
+  transition: transform 0.2s cubic-bezier(0.4,0,0.2,1), color 0.2s;
+}
+.navbar .nav-link:hover .fa-shopping-cart {
+  animation: bounceIcon 0.5s;
+  color: #218838;
+}
+@keyframes bounceIcon {
+  0% { transform: scale(1); }
+  30% { transform: scale(1.25) translateY(-4px); }
+  60% { transform: scale(0.95) translateY(2px); }
+  100% { transform: scale(1); }
+}
+
+.navbar .nav-link.grocery-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #e7ede8;
+  color: #218838  !important;
+  border-radius: 10px;
+  padding: 0.5rem 1.1rem;
+  min-width: 48px;
+  min-height: 48px;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(40, 167, 69, 0.10);
+  transition: background 0.18s, box-shadow 0.18s, color 0.18s;
+  border: none;
+  font-size: 1.05rem;
+}
+.navbar .nav-link.grocery-btn .fa-shopping-cart {
+  color: #fff;
+  margin-right: 0.5rem;
+  font-size: 1.15rem;
+  transition: color 0.18s;
+}
+.navbar .nav-link.grocery-btn:hover, .navbar .nav-link.grocery-btn:focus {
+  background: #218838;
+  color: #fff !important;
+  box-shadow: 0 4px 16px rgba(40, 167, 69, 0.18);
+  text-decoration: none;
+}

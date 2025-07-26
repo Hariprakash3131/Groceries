@@ -1,0 +1,14 @@
+.notfound-container {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.display-1 {
+  font-size: 6rem;
+  color: #e9ecef;
+}
+.btn-success {
+  margin-top: 2rem;
+} 

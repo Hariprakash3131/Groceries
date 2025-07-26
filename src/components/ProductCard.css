@@ -1,0 +1,66 @@
+.product-card {
+  transition: transform 0.2s;
+  border: 1px solid #e9ecef;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #fff;
+  padding: 1rem 1rem 1.5rem 1rem;
+  margin-bottom: 1.5rem;
+}
+.product-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+.discount-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: #ff6b35;
+  color: #fff;
+  padding: 0.35rem 0.7rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.image-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f8f9fa;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  min-height: 180px;
+  overflow: hidden;
+}
+.card-img-top {
+  height: 160px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 12px 12px 0 0;
+  background: #fff;
+}
+.card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  padding: 0;
+}
+.card-title {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+.btn-success {
+  font-size: 1rem;
+  padding: 0.6em 0;
+  border-radius: 8px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+} 

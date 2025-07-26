@@ -1,0 +1,65 @@
+.footer {
+  background: #fff;
+  color: #222;
+  padding: 3rem 0 1rem 0;
+  border-radius: 2rem 2rem 0 0;
+  margin-top: 3rem;
+  box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.05);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.footer h5,
+.footer h6 {
+  color: #28a745;
+  font-weight: 600;
+}
+
+.footer a {
+  color: #6c757d;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.footer a:hover {
+  color: #28a745;
+  text-decoration: underline;
+}
+
+.footer .social-icons a {
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.3s;
+  background-color: #f1f1f1;
+}
+
+.footer .social-icons a:hover {
+  background-color: #28a745;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.footer .payment-icons img {
+  margin-right: 0.5rem;
+  height: 25px;
+  transition: transform 0.3s;
+}
+
+.footer .payment-icons img:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 767px) {
+  .footer .row > div {
+    text-align: center;
+  }
+
+  .footer .social-icons {
+    justify-content: center !important;
+  }
+
+  .footer .payment-icons {
+    justify-content: center !important;
+    margin-top: 1rem;
+  }
+}
