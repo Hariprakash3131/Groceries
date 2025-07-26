@@ -7,6 +7,6 @@ export default defineConfig({
   server: {
     port: 3000,
     open: true,
-    base:process.env.VITE_BASE_PATH || "/Hari-E-com-website ",
+    base:process.env.VITE_BASE_PATH || "/Groceries ",
   }
 })
