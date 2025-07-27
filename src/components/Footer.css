@@ -49,9 +49,11 @@
   transform: scale(1.1);
 }
 
-@media (max-width: 767px) {
+/* Responsive adjustments only */
+@media (max-width: 991.98px) {
   .footer .row > div {
     text-align: center;
+    margin-bottom: 2rem;
   }
 
   .footer .social-icons {
@@ -61,5 +63,24 @@
   .footer .payment-icons {
     justify-content: center !important;
     margin-top: 1rem;
+  }
+
+  .footer .payment-icons img {
+    margin-right: 0.75rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .footer {
+    padding: 2rem 1rem 1rem;
+  }
+
+  .footer h5,
+  .footer h6 {
+    font-size: 1.1rem;
+  }
+
+  .footer .payment-icons img {
+    height: 22px;
   }
 }

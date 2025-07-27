@@ -90,10 +90,9 @@ const Footer = () => {
           </div>
           <div className="col-md-6 text-md-end payment-icons">
             <div className="d-flex gap-3 justify-content-md-end">
-            <img src="https://img.icons8.com/color/48/visa.png" alt="Visa" />
-<img src="https://img.icons8.com/color/48/mastercard-logo.png" alt="Mastercard" />
-<img src="https://img.icons8.com/color/48/paypal.png" alt="PayPal" />
-
+              <img src="https://img.icons8.com/color/48/visa.png" alt="Visa" />
+              <img src="https://img.icons8.com/color/48/mastercard-logo.png" alt="Mastercard" />
+              <img src="https://img.icons8.com/color/48/paypal.png" alt="PayPal" />
             </div>
           </div>
         </div>
@@ -102,4 +101,4 @@ const Footer = () => {
   );
 };
 
-export default Footer; 
+export default Footer;
