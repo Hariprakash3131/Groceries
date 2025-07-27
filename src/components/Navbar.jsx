@@ -6,13 +6,14 @@ const Navbar = ({ cartItems, cartTotal, onCartOpen }) => {
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
-      <div className="container-fluid px-4 position-relative">
+      <div className="container-xxl px-4 position-relative">
+
         {/* Logo */}
         <a className="navbar-brand text-success fw-bold" href="#">
           <i className="fas fa-shopping-bag me-2"></i>PickBazar
         </a>
 
-        {/* Toggler for mobile */}
+        {/* Mobile Toggler */}
         <button
           className="navbar-toggler"
           type="button"
@@ -25,16 +26,10 @@ const Navbar = ({ cartItems, cartTotal, onCartOpen }) => {
         {/* Main Navigation */}
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav me-auto align-items-center">
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link grocery-btn"
-                href="#"
-                role="button"
-             
-              >
+            <li className="nav-item">
+              <a className="nav-link grocery-btn" href="#">
                 <i className="fas fa-shopping-cart me-1"></i>Grocery
               </a>
-             
             </li>
             <li className="nav-item"><a className="nav-link" href="#">Shops</a></li>
             <li className="nav-item"><a className="nav-link" href="#">Offers</a></li>
@@ -43,25 +38,26 @@ const Navbar = ({ cartItems, cartTotal, onCartOpen }) => {
               <a className="nav-link" href="#" role="button" data-bs-toggle="dropdown">
                 Pages
               </a>
-             
+              {/* Dropdown menu could go here */}
             </li>
           </ul>
 
-          {/* ✅ Right-Aligned Buttons for Join and Become a Seller */}
+          {/* Right-Aligned Action Buttons */}
           <div className="custom-button-group">
-  <button className="custom-btn outline">Join</button>
-  <button className="custom-btn filled">Become a Seller</button>
-</div>
-</div>
+            <button className="custom-btn outline">Join</button>
+            <button className="custom-btn filled">Become a Seller</button>
+          </div>
+        </div>
 
-        {/* Cart Summary (Desktop Only) */}
+        {/* Cart Summary (Only on Desktop) */}
         <div className="cart-summary d-none d-lg-flex flex-column align-items-center">
-          <div className="fw-bold">{cartItems.length} Item</div>
+          <div className="fw-bold">{cartItems.length} Item{cartItems.length !== 1 && 's'}</div>
           <div className="fw-bold">${cartTotal.toFixed(2)}</div>
           <button className="btn-view-cart" onClick={onCartOpen}>
             <i className="fas fa-shopping-cart me-1"></i>
           </button>
         </div>
+
       </div>
     </nav>
   );

@@ -1,6 +1,11 @@
-.navbar {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-}
+
+  .navbar {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  }
+  
 
 .navbar-brand {
   font-weight: bold;
@@ -207,4 +212,8 @@
   color: #fff !important;
   box-shadow: 0 4px 16px rgba(40, 167, 69, 0.18);
   text-decoration: none;
+}
+/* Override Bootstrap container max-width if needed */
+.container-xxl {
+  max-width: 1440px;
 }

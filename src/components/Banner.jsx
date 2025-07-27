@@ -17,15 +17,14 @@ const Banner = () => {
                 Get your healthy foods & snacks delivered at your doorsteps all day everyday
               </p>
               {/* Search Bar */}
-              <div className="search-bar d-flex align-items-center">
+              <div className="search-bar">
                 <input 
                   type="text" 
-                  className="search-input flex-grow-1" 
+                  className="search-input" 
                   placeholder="Search your products from here"
                 />
-                <button className="search-button ms-2">
-                  <i className="fas fa-search me-2"></i>
-                   Search
+                <button className="search-button">
+                  <i className="fas fa-search"></i> Search
                 </button>
               </div>
             </div>
@@ -46,32 +45,30 @@ const Banner = () => {
 
       {/* Promotional Banners */}
       <section className="container mb-5">
-  <div className="row g-4">
-    {banners.map(b => (
-      <div key={b.id} className="col-md-4">
-        <div
-          className="banner-card"
-          style={{
-            backgroundImage: `url(${b.image})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center"
-          }}
-        >
-          <div className="overlay"></div>
-          <div className="content">
-           
-            <h5 className="fw-bold">{b.title}</h5>
-            <p>{b.subtitle}</p>
-            <button className="btn btn-light btn-sm">{b.buttonText}</button>
-          </div>
+        <div className="row g-4">
+          {banners.map(b => (
+            <div key={b.id} className="col-md-4">
+              <div
+                className="banner-card"
+                style={{
+                  backgroundImage: `url(${b.image})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center"
+                }}
+              >
+                <div className="overlay"></div>
+                <div className="content">
+                  <h5 className="fw-bold">{b.title}</h5>
+                  <p>{b.subtitle}</p>
+                  <button className="btn btn-light btn-sm">{b.buttonText}</button>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
-      </div>
-    ))}
-  </div>
-</section>
-
+      </section>
     </div>
   );
 };
 
-export default Banner; 
+export default Banner;
