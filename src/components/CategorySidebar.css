@@ -4,6 +4,48 @@
   padding: 1.5rem 1rem;
   min-height: 350px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  position: sticky;
+  top: 90px;
+  z-index: 10;
+  transition: box-shadow 0.2s;
+}
+@media (max-width: 991px) {
+  .category-sidebar {
+    display: none;
+    position: static;
+    min-height: unset;
+    box-shadow: none;
+    padding: 1rem 0.5rem;
+  }
+  .category-sidebar.mobile-visible {
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 80vw;
+    max-width: 320px;
+    height: 100vh;
+    background: #fff;
+    z-index: 2000;
+    box-shadow: 2px 0 16px rgba(0,0,0,0.15);
+    overflow-y: auto;
+    animation: slideInSidebar 0.3s;
+  }
+  .category-sidebar .close-btn {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #888;
+    z-index: 10;
+  }
+}
+@keyframes slideInSidebar {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
 }
 .category-list {
   margin-bottom: 1.5rem;

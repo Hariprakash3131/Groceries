@@ -8,10 +8,16 @@ const CategorySidebar = ({
   priceFilter,
   onPriceFilter,
   discountFilter,
-  onDiscountFilter
+  onDiscountFilter,
+  mobileOpen,
+  onClose
 }) => {
   return (
-    <div className="category-sidebar">
+    <div className={`category-sidebar${mobileOpen ? ' mobile-visible' : ''}`}>
+      {/* Mobile close button */}
+      {mobileOpen && (
+        <button className="close-btn" onClick={onClose} aria-label="Close sidebar">&times;</button>
+      )}
       <h5 className="mb-3 fw-bold">Categories</h5>
       <div className="category-list">
         {categories.map((category) => (
@@ -20,7 +26,10 @@ const CategorySidebar = ({
             className={`category-item d-flex align-items-center ${
               selectedCategory === category.id ? "active" : ""
             }`}
-            onClick={() => onCategorySelect(category.id)}
+            onClick={() => {
+              onCategorySelect(category.id);
+              if (mobileOpen && onClose) onClose();
+            }}
           >
             <span className="me-3" style={{ fontSize: "1.2rem" }}>
               {category.icon}
