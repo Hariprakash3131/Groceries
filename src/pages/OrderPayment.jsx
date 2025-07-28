@@ -9,8 +9,33 @@ const OrderPayment = () => {
   const cartTotal = location.state?.cartTotal || 0;
   const [orderPlaced, setOrderPlaced] = useState(false);
 
+  // Form state
+  const [name, setName] = useState('');
+  const [address, setAddress] = useState('');
+  const [phone, setPhone] = useState('');
+  const [errors, setErrors] = useState({});
+
+  const validate = () => {
+    const newErrors = {};
+    // Name: only letters and spaces, at least 2 chars
+    if (!/^[A-Za-z ]{2,}$/.test(name)) {
+      newErrors.name = 'Name should contain only letters and spaces.';
+    }
+    // Phone: exactly 10 digits
+    if (!/^\d{10}$/.test(phone)) {
+      newErrors.phone = 'Phone number must be exactly 10 digits.';
+    }
+    // Address: required
+    if (!address.trim()) {
+      newErrors.address = 'Address is required.';
+    }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handlePlaceOrder = (e) => {
     e.preventDefault();
+    if (!validate()) return;
     setOrderPlaced(true);
     // Optionally, clear cart or trigger further actions here
   };
@@ -87,34 +112,44 @@ const OrderPayment = () => {
               </div>
 
               {/* Shipping Form */}
-              <form className="card p-4 shadow-sm border-0" onSubmit={handlePlaceOrder}>
+              <form className="card p-4 shadow-sm border-0" onSubmit={handlePlaceOrder} noValidate>
                 <h5 className="mb-3 fw-semibold text-success">Shipping Details</h5>
                 <div className="mb-3">
                   <label className="form-label fw-medium">Full Name</label>
                   <input
                     type="text"
-                    className="form-control"
+                    className={`form-control${errors.name ? ' is-invalid' : ''}`}
                     placeholder="Enter your name"
+                    value={name}
+                    onChange={e => setName(e.target.value)}
                     required
                   />
+                  {errors.name && <div className="invalid-feedback">{errors.name}</div>}
                 </div>
                 <div className="mb-3">
                   <label className="form-label fw-medium">Address</label>
                   <input
                     type="text"
-                    className="form-control"
+                    className={`form-control${errors.address ? ' is-invalid' : ''}`}
                     placeholder="Enter your address"
+                    value={address}
+                    onChange={e => setAddress(e.target.value)}
                     required
                   />
+                  {errors.address && <div className="invalid-feedback">{errors.address}</div>}
                 </div>
                 <div className="mb-3">
                   <label className="form-label fw-medium">Phone</label>
                   <input
                     type="tel"
-                    className="form-control"
+                    className={`form-control${errors.phone ? ' is-invalid' : ''}`}
                     placeholder="Enter your phone number"
+                    value={phone}
+                    onChange={e => setPhone(e.target.value.replace(/[^0-9]/g, ''))}
+                    maxLength={10}
                     required
                   />
+                  {errors.phone && <div className="invalid-feedback">{errors.phone}</div>}
                 </div>
                 <button type="submit" className="btn btn-success w-100 fw-semibold">
                   ✅ Place Order
