@@ -4,34 +4,39 @@ import { useNavigate } from 'react-router-dom';
 
 const Cart = ({ cartItems, cartTotal, isOpen, onToggle, onIncreaseQty, onDecreaseQty }) => {
   const navigate = useNavigate();
+  
+  // Format cart summary for display
+  const itemCount = cartItems.length;
+  const formattedTotal = cartTotal.toFixed(2);
+
   return (
     <>
-      {/* Mobile Cart Button */}
-      <div className="mobile-cart-btn d-lg-none">
+      {/* Cart Summary Button */}
+      <div className="cart-summary-btn">
         <button 
-          className="btn btn-success rounded-circle p-3 position-relative"
+          className="btn btn-success d-flex flex-column align-items-center p-3"
           onClick={onToggle}
+          style={{ borderRadius: '8px', minWidth: '120px' }}
         >
-          <i className="fas fa-shopping-cart"></i>
-          <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-            {cartItems.length}
-          </span>
+          <div>{itemCount} {itemCount === 1 ? 'Item' : 'Items'}</div>
+          <div>${formattedTotal}</div>
+          <div className="cart-icon mt-1">
+            <i className="fas fa-shopping-cart"></i>
+          </div>
         </button>
       </div>
-      {/* Cart Modal (now for all devices) */}
+
+      {/* Cart Modal */}
       {isOpen && (
         <>
-          {/* Backdrop overlay */}
-          <div
-            className="modal-backdrop fade show"
-            style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', background: 'rgba(0,0,0,0.5)', zIndex: 1040 }}
-            onClick={onToggle}
-          />
+          {/* Existing backdrop and modal structure */}
           <div className="cart-drawer-modal">
             <div className="modal-dialog modal-dialog-centered">
               <div className="modal-content">
-                <div className="modal-header d-flex align-items-center justify-content-between">
-                  <h5 className="modal-title">Shopping Cart</h5>
+                <div className="modal-header">
+                  <h5 className="modal-title">
+                    Shopping Cart ({itemCount} {itemCount === 1 ? 'Item' : 'Items'})
+                  </h5>
                   <button
                     type="button"
                     className="btn-close ms-2"
@@ -111,4 +116,4 @@ const Cart = ({ cartItems, cartTotal, isOpen, onToggle, onIncreaseQty, onDecreas
   );
 };
 
-export default Cart; 
+export default Cart;

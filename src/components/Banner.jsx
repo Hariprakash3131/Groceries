@@ -1,11 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { banners } from '../api/mockApi';
 import './Banner.css';
 
-const Banner = () => {
+const Banner = ({ onSearch, searchQuery }) => {
+  const [localQuery, setLocalQuery] = useState(searchQuery || "");
+
+  // Sync local state with parent searchQuery
+  React.useEffect(() => {
+    setLocalQuery(searchQuery || "");
+  }, [searchQuery]);
+
+  const handleInputChange = (e) => {
+    setLocalQuery(e.target.value);
+  };
+
+  const handleSearch = () => {
+    onSearch(localQuery.trim());
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
+  };
+
   return (
     <div>
-      {/* Hero Section */}
       <section className="hero-section">
         <div className="container">
           <div className="row align-items-center">
@@ -22,8 +42,11 @@ const Banner = () => {
                   type="text" 
                   className="search-input" 
                   placeholder="Search your products from here"
+                  value={localQuery}
+                  onChange={handleInputChange}
+                  onKeyDown={handleKeyDown}
                 />
-                <button className="search-button">
+                <button className="search-button" onClick={handleSearch}>
                   <i className="fas fa-search"></i> Search
                 </button>
               </div>

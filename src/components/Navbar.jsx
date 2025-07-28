@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Navbar.css';
 
-const Navbar = ({ cartItems, cartTotal, onCartOpen }) => {
+const Navbar = ({ cartItems, cartTotal, onCartOpen, onSearch, searchQuery, onOffersClick }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   return (
@@ -32,7 +32,7 @@ const Navbar = ({ cartItems, cartTotal, onCartOpen }) => {
               </a>
             </li>
             <li className="nav-item"><a className="nav-link" href="#">Shops</a></li>
-            <li className="nav-item"><a className="nav-link" href="#">Offers</a></li>
+            <li className="nav-item"><a className="nav-link" href="#" onClick={onOffersClick}>Offers</a></li>
             <li className="nav-item"><a className="nav-link" href="#">Contact</a></li>
             <li className="nav-item dropdown">
               <a className="nav-link" href="#" role="button" data-bs-toggle="dropdown">
@@ -49,12 +49,18 @@ const Navbar = ({ cartItems, cartTotal, onCartOpen }) => {
           </div>
         </div>
 
-        {/* Cart Summary (Only on Desktop) */}
-        <div className="cart-summary d-none d-lg-flex flex-column align-items-center">
-          <div className="fw-bold">{cartItems.length} Item{cartItems.length !== 1 && 's'}</div>
-          <div className="fw-bold">${cartTotal.toFixed(2)}</div>
-          <button className="btn-view-cart" onClick={onCartOpen}>
-            <i className="fas fa-shopping-cart me-1"></i>
+        {/* Add Mobile Cart Summary */}
+        <div className="d-lg-none">
+          <button 
+            className="btn btn-outline-success position-relative"
+            onClick={onCartOpen}
+          >
+            <i className="fas fa-shopping-cart"></i>
+            {cartItems.length > 0 && (
+              <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                {cartItems.length}
+              </span>
+            )}
           </button>
         </div>
 
